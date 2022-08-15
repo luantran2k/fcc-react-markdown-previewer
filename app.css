@@ -1,0 +1,206 @@
+@import url("https://fonts.googleapis.com/css?family=Russo+One");
+* {
+    padding: 0;
+    margin: 0;
+    box-sizing: border-box;
+}
+
+html {
+    font-size: 62.5%;
+}
+
+#root {
+    font-size: 1.6rem;
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto,
+        "Helvetica Neue", Arial, "Noto Sans", sans-serif, "Apple Color Emoji",
+        "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+    display: flex;
+}
+
+/* Editor */
+.editor-block {
+    position: relative;
+    height: 100vh;
+    flex: 0 0 40%;
+    overflow-y: scroll;
+}
+
+#main-title {
+    color: white;
+    line-height: 1;
+    text-align: center;
+    padding: 2rem 0;
+    background-color: #04aa6d;
+}
+
+.editor-block::-webkit-scrollbar {
+    display: none;
+}
+
+.editor-container {
+    display: flex;
+}
+
+#editor {
+    width: 100%;
+    color: white;
+    font-size: 1.6rem;
+    background-color: #111;
+    border: none;
+    outline: none;
+    resize: none;
+    padding: 2rem 2rem 0 1rem;
+}
+#editor::-webkit-scrollbar {
+    display: none;
+}
+
+.line-numbers {
+    display: flex;
+    flex-direction: column;
+    padding: 2rem 1rem;
+    color: white;
+    background-color: #333;
+}
+
+.line-numbers span {
+    display: inline-block;
+    padding: 0 0.6rem;
+    font-size: 1.6rem;
+    counter-increment: linenumber;
+    text-align: center;
+}
+.line-numbers span::before {
+    content: counter(linenumber);
+    display: block;
+    color: white;
+}
+
+.li #editor::-webkit-scrollbar {
+    display: none;
+}
+
+/* Preview */
+#preview {
+    flex: 0 0 calc(60% - 0.4rem);
+    padding: 4rem;
+    height: 100vh;
+    overflow-y: scroll;
+}
+
+#preview h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p,
+a,
+pre,
+span {
+    word-wrap: break-word;
+}
+
+pre,
+table {
+    overflow-x: scroll;
+}
+
+#preview::-webkit-scrollbar {
+    display: none;
+}
+
+img[alt="Logo"] {
+    width: 5rem;
+    height: 5rem;
+    border-radius: 1rem;
+    margin: 2rem 0;
+}
+
+#preview pre {
+    background-color: beige;
+    border-radius: 1rem;
+    padding: 1rem;
+    margin: 2rem 0;
+}
+
+#preview ul,
+#preview ol {
+    margin-left: 2rem;
+}
+#preview table {
+    border-collapse: collapse;
+    margin: 2rem 0;
+}
+
+#preview td,
+#preview th {
+    border: 1px solid #ddd;
+    padding: 8px;
+}
+
+#preview tr:nth-child(even) {
+    background-color: #f2f2f2;
+}
+
+#preview tr:hover {
+    background-color: #ddd;
+}
+
+#preview th {
+    padding-top: 12px;
+    padding-bottom: 12px;
+    text-align: left;
+    background-color: #04aa6d;
+    color: white;
+}
+
+#switch-view {
+    display: none;
+}
+
+@media only screen and (max-width: 64em) {
+    #root {
+        flex-direction: column;
+    }
+    #main-title {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+    }
+    .editor-container,
+    #preview {
+        margin-top: 7.2rem;
+    }
+    .line-numbers {
+        display: none;
+    }
+    .editor-container {
+        height: 100vh;
+    }
+
+    #preview {
+        display: none;
+    }
+    #root.active .editor-container {
+        display: none;
+    }
+    #root.active #preview {
+        display: block;
+    }
+    #switch-view {
+        display: inline-block;
+        position: fixed;
+        right: 2rem;
+        top: 10rem;
+        font-size: 1.6rem;
+        border: none;
+        outline: none;
+        background-color: #04aa6d;
+        color: white;
+        padding: 1rem 2rem;
+        border-radius: 1rem;
+        cursor: pointer;
+    }
+}
