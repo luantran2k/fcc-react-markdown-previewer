@@ -21,7 +21,7 @@ html {
 .editor-block {
     position: relative;
     height: 100vh;
-    flex: 0 0 40%;
+    flex: 0 0 50%;
     overflow-y: scroll;
 }
 
@@ -82,7 +82,7 @@ html {
 
 /* Preview */
 #preview {
-    flex: 0 0 calc(60% - 0.4rem);
+    flex: 0 0 50%;
     padding: 4rem;
     height: 100vh;
     overflow-y: scroll;
